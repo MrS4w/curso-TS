@@ -114,3 +114,50 @@ if (typeof valor === 'number') {
 else {
     console.log(typeof valor);
 }
+// never
+function falha(msg) {
+    throw new Error(msg);
+}
+var produto = {
+    nome: 'Sabão',
+    preco: 4,
+    validarProduto: function () {
+        if (!this.nome || this.nome.trim().length == 0) {
+            falha('Precisa ter um nome');
+        }
+        if (this.preco <= 0) {
+            falha('Preço inválido');
+        }
+    },
+};
+produto.validarProduto();
+var altura = 12;
+// altura = null
+var alturaOpcional = 12;
+alturaOpcional = null;
+var contato1 = {
+    nome: 'fulano',
+    tel1: '91212121',
+    tel2: null,
+};
+console.log(contato1.nome);
+console.log(contato1.tel1);
+console.log(contato1.tel2);
+var podeSerNulo = null; // any
+podeSerNulo = 12;
+console.log(podeSerNulo);
+podeSerNulo = 'abc';
+console.log(podeSerNulo);
+var contaBancaria = {
+    saldo: 3456,
+    depositar: function (valor) {
+        this.saldo += valor;
+    },
+};
+var correntista = {
+    nome: 'Ana Silva',
+    contaBancaria: contaBancaria,
+    contatos: ['34567890', '98765432'],
+};
+correntista.contaBancaria.depositar(3000);
+console.log(correntista);
