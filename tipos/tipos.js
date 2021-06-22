@@ -68,3 +68,49 @@ var calculo;
 // calculo = {}
 calculo = multiplicar;
 console.log(calculo(5, 6));
+// objetos
+var usuario = {
+    nome: 'João',
+    idade: 27,
+};
+console.log(usuario);
+// usuario = {}
+// usuario = {
+//     name: 'Maria',
+//     age: 21
+// }
+usuario = {
+    idade: 31,
+    nome: 'Maria',
+};
+console.log(usuario);
+var funcionario = {
+    supervisores: ['Ana', 'José'],
+    baterPonto: function (horario) {
+        return horario <= 8 ? 'Ponto normal' : 'Fora do horário!';
+    },
+};
+var funcionario2 = {
+    supervisores: ['Bia', 'Carlos'],
+    baterPonto: function (horario) {
+        return horario <= 8 ? 'Ponto normal' : 'Fora do horário!';
+    },
+};
+console.log(funcionario.supervisores);
+console.log(funcionario.baterPonto(8));
+console.log(funcionario.baterPonto(9));
+// funcionario = {};
+// Union Types
+var nota = 10;
+console.log("Minha nota \u00E9 " + nota + "!");
+nota = '9';
+console.log("Minha nota \u00E9 " + nota + "!");
+// nota = true
+// Checando tipos
+var valor = 30;
+if (typeof valor === 'number') {
+    console.log('É um number!');
+}
+else {
+    console.log(typeof valor);
+}

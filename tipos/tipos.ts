@@ -83,3 +83,74 @@ let calculo: (numA: number, numB: number) => number;
 
 calculo = multiplicar;
 console.log(calculo(5, 6));
+
+// objetos
+let usuario: { nome: string; idade: number } = {
+  nome: 'João',
+  idade: 27,
+};
+
+console.log(usuario);
+// usuario = {}
+
+// usuario = {
+//     name: 'Maria',
+//     age: 21
+// }
+
+usuario = {
+  idade: 31,
+  nome: 'Maria',
+};
+console.log(usuario);
+
+//  Desafio
+/* 
+    Criar um objeto funcionário com:
+        - Array de string com os nomes dos supervisore
+        - Função de bater ponto que recebe a hora (number)
+            e retorna uma string:
+            -> Ponto normal (<= 8)
+            -> Fora do horário (> 8)
+*/
+// Alias
+type Funcionario = {
+  supervisores: string[];
+  baterPonto: (horas: number) => string;
+};
+
+let funcionario: Funcionario = {
+  supervisores: ['Ana', 'José'],
+  baterPonto(horario: number): string {
+    return horario <= 8 ? 'Ponto normal' : 'Fora do horário!';
+  },
+};
+
+let funcionario2: Funcionario = {
+  supervisores: ['Bia', 'Carlos'],
+  baterPonto(horario: number): string {
+    return horario <= 8 ? 'Ponto normal' : 'Fora do horário!';
+  },
+};
+
+console.log(funcionario.supervisores);
+console.log(funcionario.baterPonto(8));
+console.log(funcionario.baterPonto(9));
+
+// funcionario = {};
+
+// Union Types
+let nota: number | string = 10;
+console.log(`Minha nota é ${nota}!`);
+nota = '9';
+console.log(`Minha nota é ${nota}!`);
+// nota = true
+
+// Checando tipos
+let valor = 30;
+
+if (typeof valor === 'number') {
+  console.log('É um number!');
+} else {
+  console.log(typeof valor);
+}
